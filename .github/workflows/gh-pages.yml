@@ -1,24 +1,23 @@
-name: github pages
+name: Deploy Hugo Site to Github Pages on Master Branch
 
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - master
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/checkout@v1  # v2 does not have submodules option now
+       # with:
+       #   submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
-          # extended: true
+          hugo-version: '0.82.0'
+          extended: true
 
       - name: Build
         run: hugo --minify
@@ -26,5 +25,9 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./public
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名
+          external_repository: Ginakira/ginakira.github.io # Pages 远程仓库 
+          publish_dir: ""
+          keep_files: false # remove existing files
+          publish_branch: master  # deploying branch
+          commit_message: ${{ github.event.head_commit.message }}
