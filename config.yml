@@ -77,11 +77,12 @@ languages:
   zh:
     languageName: 中
     author: Ginakira's Blog
-    authorDescription: Stay hungry, stay foolish.
-    info: 
-    guestbook:
-      title: 留言板
-      description: 您的评论，会让该网站更精彩！
+    params:
+      authorDescription: Stay hungry, stay foolish.
+      info: 
+      guestbook:
+        title: 留言板
+        description: 您的评论，会让该网站更精彩！
     menu:
       main:
         - name: 文章
