@@ -1,11 +1,13 @@
 ---
 date: 2023-06-28T01:44:00+08:00
 title: (译) C++20协程教程与我的个人见解
-description: "翻译自斯坦福大学计算机科学系博客"
-tags: []
-series: []
+tags: ["C++", "协程", "技术", "翻译", "C++20"]
+series: ["C++", "翻译"]
 featured: true
 ---
+> 翻译自斯坦福大学计算机科学系博客
+
+<!--more-->
 
 > 原文链接：[https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html](https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html)
 > 
